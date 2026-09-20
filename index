@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SnapList Privacy and eBay Connection</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #071321;
+      color: #f7fbff;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      width: min(700px, 100%);
+      padding: 40px;
+      border: 1px solid #29415a;
+      border-radius: 22px;
+      background: #0d1b2e;
+    }
+
+    .brand {
+      color: #16cfe8;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin: 18px 0;
+      font-size: 38px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 21px;
+    }
+
+    p {
+      color: #c6d4e3;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    code {
+      display: block;
+      overflow-wrap: anywhere;
+      margin-top: 20px;
+      padding: 16px;
+      border: 1px solid #304860;
+      border-radius: 12px;
+      background: #07111f;
+      color: white;
+    }
+
+    button {
+      margin-top: 12px;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 10px;
+      background: #16cfe8;
+      color: #071321;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="brand">SNAPLIST</div>
+
+    <section id="privacy">
+      <h1>Privacy Policy</h1>
+      <p><strong>Last updated: September 20, 2026</strong></p>
+
+      <p>
+        SnapList is a private, single-user desktop application that helps its
+        owner prepare and publish marketplace listings.
+      </p>
+
+      <h2>Information handled</h2>
+      <p>
+        The desktop application may process product photographs, listing
+        information, and eBay authorization information solely to create and
+        manage listings requested by the user.
+      </p>
+
+      <h2>Storage</h2>
+      <p>
+        SnapList settings and credentials are stored locally on the user’s
+        computer. This website does not store passwords, secret keys,
+        authorization codes, photographs, listings, buyer information, or
+        order information.
+      </p>
+
+      <h2>Sharing</h2>
+      <p>
+        SnapList does not sell personal information. Information is sent to
+        eBay only when necessary to perform an action approved by the user.
+      </p>
+
+      <h2>Authorization and deletion</h2>
+      <p>
+        The user may revoke SnapList’s access through their eBay account
+        settings. Locally stored information can be removed by clearing the
+        saved connection or uninstalling the desktop application.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        Reasonable safeguards are used to keep credentials local and limit
+        information handling to functions requested by the user.
+      </p>
+    </section>
+
+    <section id="approved" class="hidden">
+      <h1>eBay connection approved</h1>
+      <p>
+        Copy the authorization code below and return to the SnapList desktop
+        application.
+      </p>
+
+      <code id="authorization-code">Authorization code received</code>
+      <button id="copy-button">Copy authorization code</button>
+
+      <p>This page does not store your authorization code.</p>
+    </section>
+
+    <section id="declined" class="hidden">
+      <h1>Connection cancelled</h1>
+      <p>
+        No eBay access was granted. You may close this page and return to
+        SnapList.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const parameters = new URLSearchParams(window.location.search);
+    const result = parameters.get("result");
+    const code = parameters.get("code");
+
+    const privacy = document.getElementById("privacy");
+    const approved = document.getElementById("approved");
+    const declined = document.getElementById("declined");
+
+    if (result === "approved") {
+      privacy.classList.add("hidden");
+      approved.classList.remove("hidden");
+
+      document.getElementById("authorization-code").textContent =
+        code || "No authorization code was provided.";
+
+      document.getElementById("copy-button").onclick = async function () {
+        if (!code) return;
+
+        await navigator.clipboard.writeText(code);
+        this.textContent = "Copied";
+      };
+    }
+
+    if (result === "declined") {
+      privacy.classList.add("hidden");
+      declined.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
