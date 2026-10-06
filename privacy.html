@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for SnapList, a tool for preparing eBay listing drafts.">
+  <title>SnapList Privacy Policy</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17212b; background: #f5f7fa; }
+    body { margin: 0; padding: 40px 20px; line-height: 1.65; }
+    main { max-width: 780px; margin: 0 auto; padding: 36px clamp(22px, 5vw, 56px); background: white; border: 1px solid #e2e7ed; border-radius: 16px; box-shadow: 0 8px 32px #12243a0b; }
+    h1 { line-height: 1.2; letter-spacing: -.03em; }
+    h2 { margin-top: 30px; font-size: 1.2rem; }
+    p, li { color: #3c4a57; }
+    a { color: #155eef; }
+    .updated { color: #667085; font-size: .95rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>SnapList Privacy Policy</h1>
+  <p class="updated">Last updated: October 7, 2026</p>
+
+  <p>SnapList helps its operator prepare unpublished product listing drafts for eBay. This policy explains what information the current SnapList prototype uses and how it is handled.</p>
+
+  <h2>Information you provide</h2>
+  <p>When you use SnapList, you may enter an Amazon product link, search terms, and listing details such as a title, description, price, quantity, condition, and product identifiers. SnapList reads the product identifier (ASIN) from an Amazon link and uses it to search eBay's catalog. The prototype does not retrieve or copy Amazon product descriptions, prices, reviews, or photos.</p>
+
+  <h2>eBay account information</h2>
+  <p>If you choose to connect an eBay account, eBay provides authorization tokens that allow SnapList to make the eBay API requests you approve. The prototype uses this access to look up relevant seller settings and, when you ask it to, create an inventory record and an unpublished offer. It does not publish the offer. You can revoke the app's access through your eBay account's third-party app access settings.</p>
+
+  <h2>Where information is stored</h2>
+  <ul>
+    <li>Incomplete listing drafts are stored in your browser's local storage on the device where you use the app.</li>
+    <li>In the current local prototype, eBay authorization tokens are held in the running app server's memory and are cleared when that server restarts or you disconnect.</li>
+    <li>The eBay Client ID and Client Secret are kept in the app's private local environment file. Do not share them.</li>
+    <li>Inventory records and unpublished offers you create are sent to and stored by eBay under eBay's terms and privacy policy.</li>
+  </ul>
+
+  <h2>Services and sharing</h2>
+  <p>SnapList sends catalog search requests to eBay. When you connect your account or create an unpublished offer, eBay processes the information needed for those actions. SnapList does not sell your personal information, use advertising trackers, or send the product link to Amazon for retrieval.</p>
+
+  <h2>Retention and your choices</h2>
+  <p>You can remove saved draft data by clearing this site's local storage in your browser. You can disconnect eBay from SnapList and revoke its access in your eBay account settings. Data already sent to eBay, including inventory records or unpublished offers, must be managed through eBay.</p>
+
+  <h2>Children's privacy</h2>
+  <p>SnapList is intended for adults who manage eBay selling accounts and is not designed for children.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>This policy may be updated if SnapList's features or data handling change. The date at the top shows when it was last revised.</p>
+
+  <h2>Contact</h2>
+  <p>For privacy questions or requests, contact the SnapList project through <a href="https://github.com/gosignals-ai/snaplist-ebay-connect/issues">GitHub Issues</a>.</p>
+</main>
+</body>
+</html>
